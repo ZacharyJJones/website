@@ -1,0 +1,379 @@
+/* Things I didn't know how to do */
+/* 1. Align images in cards to the bottom (see: Homepage/Projects. In desktop view ...
+      ... the images are not in-line with each other horizontally. */
+/* 2. Have background image of hero section at full zoom, i.e. entire image visible at ...
+      ... all (typical) resolutions. */
+
+/* Future Improvements */
+/* 1. Projects page: use additional p tag underneath flex display for even more text content */
+/* --------------------------------------------------- */
+
+/* css reset */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* set up color scheme variables here */
+:root {
+  --color-1: #0d0c1d;
+  --color-2: #161b33;
+  --color-2b: #1e243a;
+  --color-3: #474973;
+  --color-4: #169dac;
+  --color-5: #f1dac4;
+}
+
+body {
+  background-color: var(--color-1);
+  color: var(--color-5);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1rem;
+}
+
+a {
+  /* text-decoration: none; */
+  color: var(--color-4);
+}
+
+/* ============= */
+/* General Usage */
+/* ============= */
+
+h1,
+h2 {
+  text-transform: uppercase;
+  text-shadow: 2px 2px 1px #ffb347;
+  text-align: center;
+}
+
+h1 {
+  font-size: 250%;
+}
+
+h2 {
+  font-size: 150%;
+}
+
+p,
+.page-header {
+  margin: 20px 0px;
+}
+
+ul {
+  margin: 15px;
+}
+
+li {
+  list-style: "> ";
+}
+
+.logo {
+  width: 10px;
+}
+
+.logo-big {
+  width: 25px;
+  font-size: 150%;
+}
+
+.click-or-tap:after {
+  content: "tap";
+}
+
+@media screen and (min-width: 640px) {
+  .page-header {
+    font-size: 130%;
+  }
+
+  .click-or-tap:after {
+    content: "click";
+  }
+}
+
+/* =================== */
+/* Nav / Header Region */
+/* =================== */
+header {
+  margin-bottom: 10px;
+}
+
+nav {
+  background-color: var(--color-2);
+  min-width: 220px;
+  padding: 10px 0px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+}
+
+nav li {
+  color: var(--color-5);
+  text-align: center;
+  line-height: 2rem;
+  font-size: 150%;
+  list-style: none;
+}
+
+nav a {
+  display: inline-block;
+  width: 100%;
+}
+
+nav a:hover {
+  color: var(--color-3);
+}
+
+@media screen and (min-width: 640px) {
+  header {
+    position: sticky;
+    top: 0;
+  }
+
+  nav ul {
+    flex-direction: row;
+  }
+
+  nav li {
+    margin: auto;
+  }
+}
+
+/* ============= */
+/* Footer Region */
+/* ============= */
+footer {
+  text-align: center;
+  margin-top: 10px;
+  background-color: var(--color-2);
+  color: var(--color-3);
+
+  font-size: 80%;
+  padding: 10px;
+  line-height: 120%;
+}
+
+footer p {
+  margin: 0px;
+}
+
+@media screen and (min-width: 640px) {
+  footer {
+    font-size: 100%;
+  }
+}
+
+/* ===== */
+/* Cards */
+/* ===== */
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 10px 0px;
+
+  gap: 10px;
+  padding: 10px;
+}
+
+.card {
+  background-color: var(--color-2b);
+  padding: 15px;
+}
+
+.card-title {
+  text-align: center;
+  text-decoration: 5px underline;
+  margin-bottom: 20px;
+}
+
+.card li {
+  margin: 5px 0px;
+}
+
+.card img {
+  width: 100%;
+  padding: 5%;
+}
+
+.card p {
+  text-align: justify;
+}
+
+@media screen and (min-width: 640px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ======== */
+/* Homepage */
+/* ======== */
+section {
+  background-color: var(--color-2);
+  margin: 10px 0px;
+  width: 100%;
+
+  padding: 8%;
+}
+
+section p {
+  text-align: center;
+}
+
+.section-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+.section-header-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 640px) {
+  section {
+    padding: 5%;
+  }
+}
+
+/* Hero section */
+.hero {
+  padding: 10px 0px;
+  background-color: var(--color-2b);
+  position: sticky;
+  top: -1px;
+  left: 0px;
+}
+
+.hp-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../img/GameImage.png");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 25vh;
+
+  /* Centering Content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contact */
+.socials {
+  margin-top: 25px;
+}
+
+.socials ul {
+  width: 100%;
+  display: flex;
+  justify-items: center;
+}
+
+.socials li {
+  list-style: none;
+  padding: 5px;
+  width: 33%;
+  text-align: center;
+}
+
+/* =============================== */
+/* Page: Contact Me */
+/* =============================== */
+form {
+  background-color: var(--color-2b);
+  padding: 10px;
+
+  max-width: 700px;
+  margin: 0px auto;
+  /* width: 90%;
+  margin: 0px 5%; */
+}
+
+.form-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin: 10px 0px;
+}
+
+.form-label {
+  text-align: left;
+  margin-right: 10px;
+  width: 40%;
+}
+.form-label:after {
+  content: ":";
+}
+
+.form-input {
+  line-height: 120%;
+  padding: 5px;
+  width: 60%;
+
+  color: var(--color-1);
+  background-color: var(--color-5);
+  border: 1px solid var(--color-5);
+  border-radius: 5px;
+}
+
+form .submit {
+  width: 100%;
+  font-size: 130%;
+  font-weight: bold;
+  background-color: inherit;
+  border: 1px solid var(--color-4);
+  color: var(--color-4);
+}
+
+/* =============================== */
+/* Page: About Me */
+/* =============================== */
+table {
+  background-color: var(--color-2b);
+  padding: 10px;
+}
+
+th {
+  padding-bottom: 10px;
+}
+
+td {
+  font-size: 80%;
+  padding: 2px 0px;
+  text-align: center;
+}
+
+@media screen and (min-width: 640px) {
+  td {
+    padding: 2px 10px;
+  }
+}
+
+/* =============================== */
+/* Page: Projects */
+/* =============================== */
+.project-display-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 640px) {
+  .project-display-container {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
